@@ -84,3 +84,21 @@ body {
 .BaseStatContainer {
     margin-top: 1.5rem;
 }
+
+.button-group {
+    display: flex;
+}
+
+.button-group button{
+    outline: none;
+    border: none;
+    width: 175px;
+    padding: 0.4rem 0;
+    margin: 1rem;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: bisque;
+    color: black;
+    border-radius: 8px;
+
+}
