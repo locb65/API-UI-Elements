@@ -6,7 +6,10 @@ import { useEffect, useState } from 'react'
 import "./Pokemon.css"
 
 export const Main = () => {
-    const [pokeData, setPokeData] = useState()
+    const [pokeData, setPokeData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
+
 
 
     return (
