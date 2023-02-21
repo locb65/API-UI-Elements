@@ -10,7 +10,15 @@ export const Main = () => {
     const [loading, setLoading] = useState(true);
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
 
+    const fetchPokeData = async() => {
+        setLoading(true);
+        const res = await axios.get(url);
+        console.log(res.data.results)
+    }
+    useEffect(() => {
+        fetchPokeData ();
 
+    }, [url])
 
     return (
         <>
