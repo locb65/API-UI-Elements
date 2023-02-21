@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color: rgb(188, 247, 247);
+}
+.MainContainer {
+    width: 95%;
+    margin: auto;
+    padding-top: 125px;
+    display: flex;
+    justify-content: center;
+}
+.PokedexContainer, .PokeDetails{
+    flex-basis: 50%;
+}
+
+.PokemonContainer {
+    border-radius: 1rem ;
+    background-color: bisque;
+    padding: 0 1.5rem;
+    width: 350px;
+    height: 150px;
+    box-shadow: 0 5px 5px rgba(rgb(0, 0, 0));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.PokedexContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 3rem;
+}
+
+.PokemonCard {
+    width: 125px;
+    height: 125px;
+
+}
