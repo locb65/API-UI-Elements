@@ -42,3 +42,45 @@ body {
     height: 125px;
 
 }
+
+
+.PokeDetails {
+    width: 50%;
+    text-align: center;
+    color: black;
+    position: fixed;
+    top: 100px;
+    right: 10px;
+}
+
+.PokeDetails img {
+    margin: 2rem;
+}
+
+.PokeDetails h1 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.AbilityContainer {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.AbilityContainer .Abilites {
+    background-color: rgb(27, 214, 43);
+    color: white;
+    padding: 0.5rem;
+    font-size: 13px;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.BaseStatContainer {
+    margin-top: 1.5rem;
+}

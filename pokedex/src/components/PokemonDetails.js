@@ -1,23 +1,26 @@
 import React from 'react'
+import './Pokemon.css'
 
 export const PokemonDetails = () => {
   return (
     <>
       <div>
+        <div>
         <h1>Ivysaur</h1>
-        <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg'/>
+        <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg' alt=''/>
+        </div>
         <div className='TypesContainer'>
             <h2>
-              Type: <button>Grass</button> <button>Poison</button>
+              Type: Grass, Poison
             </h2>
           </div>
-          <div className='abilitesContainer'>
-            <div className='Abilities'>
+          <div className='AbilityContainer'>
+            <div className='Abilites'>
               <h2>
                 Overgrowth
               </h2>
             </div>
-            <div className='Abilities'>
+            <div className='Abilites'>
               <h2>
                 Chlorophyll
               </h2>
@@ -34,7 +37,6 @@ export const PokemonDetails = () => {
           <div className='Weight'>
             <h3>Weight: 130</h3>
           </div>
-
       </div>
     </>
   )
