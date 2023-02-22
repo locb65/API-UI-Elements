@@ -19,13 +19,20 @@ export const Main = () => {
         setPrevUrl(res.data.previous);
         getPokeData(res.data.results)
         setLoading(false)
+        console.log(pokeData)
     }
     const getPokeData=async(res)=>{
         res.map(async(item)=>{
             const Pokemons=await axios.get(item.url)
-            console.log(Pokemons.data)
+            // console.log(Pokemons.data)
+            setPokeData(state =>{
+                state=[...state ,Pokemons.data]
+                return state
+            })
         })
     }
+
+
     useEffect(() => {
         fetchPokeData ();
 
