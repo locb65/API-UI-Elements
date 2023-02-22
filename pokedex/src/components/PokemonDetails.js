@@ -57,7 +57,7 @@ export const PokemonDetails = ({data}) => {
             }
           </div>
           <div className='Weight'>
-            <h3>Weight: {data.weight}lbs</h3>
+            <h3>Weight: {data.weight}g</h3>
           </div>
         </div>
         </>

@@ -89,6 +89,7 @@ body {
     margin-top: 1.5rem;
     text-transform: capitalize;
     font-size: 24px;
+    text-align: left;
 }
 
 .button-group {
@@ -127,4 +128,5 @@ body {
 
 .Weight {
     font-size: 24px;
+    text-align: left;
 }

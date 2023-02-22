@@ -9,7 +9,7 @@ import "./Pokemon.css"
 export const Main = () => {
     const [pokeData, setPokeData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=50');
     const [nextUrl, setNextUrl] = useState();
     const [prevUrl, setPrevUrl] = useState();
     const [pokeDexData ,setPokeDexData] =useState();
@@ -27,6 +27,7 @@ export const Main = () => {
     }
 
     const getPokeData=async(res)=>{
+        setPokeData([])
         res.map(async(item)=>{
             const Pokemons=await axios.get(item.url)
             // console.log(Pokemons.data)
@@ -40,9 +41,7 @@ export const Main = () => {
 
 
     useEffect(() => {
-        if(pokeData.length == 0){
         fetchPokeData ();
-        }
 
     }, [url])
 
@@ -52,8 +51,14 @@ export const Main = () => {
                 <div className='PokedexContainer'>
                     <PokemonImage pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
                     <div className='button-group'>
-                        <button>Previous</button>
-                        <button>Next</button>
+                        <button onClick={()=>{
+                            setPokeData([])
+                            setUrl(prevUrl)
+                        }}>Previous</button>
+                        <button onClick={()=>{
+                            setPokeData([])
+                            setUrl(nextUrl)
+                        }}>Next</button>
                     </div>
                 </div>
 
