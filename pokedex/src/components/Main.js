@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { PokemonImage } from './PokemonImage'
 import { PokemonDetails } from './PokemonDetails'
@@ -17,18 +18,20 @@ export const Main = () => {
     const fetchPokeData = async() => {
         setLoading(true);
         const res = await axios.get(url);
+        console.log(res)
         setNextUrl(res.data.next);
         setPrevUrl(res.data.previous);
         getPokeData(res.data.results)
         setLoading(false)
         // console.log(pokeData)
     }
+
     const getPokeData=async(res)=>{
         res.map(async(item)=>{
             const Pokemons=await axios.get(item.url)
             // console.log(Pokemons.data)
             setPokeData(state =>{
-                state=[...state ,Pokemons.data]
+                state=[...state, Pokemons.data]
                 state.sort((a,b)=>a.id>b.id?1:-1)
                 return state
             })
@@ -37,7 +40,9 @@ export const Main = () => {
 
 
     useEffect(() => {
+        if(pokeData.length == 0){
         fetchPokeData ();
+        }
 
     }, [url])
 

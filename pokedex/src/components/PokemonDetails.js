@@ -14,9 +14,18 @@ export const PokemonDetails = ({data}) => {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt=''/>
           </div>
           <div className='TypesContainer'>
-            <h2>
-              Type: Grass, Poison
-            </h2>
+            {
+              data.types.map(pokemon=>{
+                return (
+                  <>
+                    <h2>
+                    {pokemon.type.name}
+                    </h2>
+                  </>
+                )
+              })
+            }
+
           </div>
           <div className='AbilityContainer'>
             <div className='Abilites'>
