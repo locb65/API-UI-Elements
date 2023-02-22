@@ -3,14 +3,25 @@ import { useEffect, useState } from "react";
 import "./Pokemon.css"
 
 
-export const PokemonImage = (props) => {
+export const PokemonImage = ({pokemon, loading}) => {
+  console.log(pokemon)
 
   return (
     <>
-    <div className="PokemonContainer">
-      <img className="PokemonCard" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg" alt=""/>
-      <h2>Ivysaur</h2>
-    </div>
+    {
+      loading ? <h1> Loading... </h1>: pokemon.map((data)=>{
+        return (
+          <>
+            <div className="PokemonContainer">
+              <h2>{data.id}</h2>
+              <img className="PokemonCard" src={data.sprites.front_default} alt=""/>
+              <h2>{data.name}</h2>
+            </div>
+          </>
+        )
+      })
+    }
+
     </>
   )
 }

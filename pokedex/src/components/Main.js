@@ -19,7 +19,7 @@ export const Main = () => {
         setPrevUrl(res.data.previous);
         getPokeData(res.data.results)
         setLoading(false)
-        console.log(pokeData)
+        // console.log(pokeData)
     }
     const getPokeData=async(res)=>{
         res.map(async(item)=>{
@@ -42,23 +42,16 @@ export const Main = () => {
         <>
             <div className='MainContainer'>
                 <div className='PokedexContainer'>
-                    <PokemonImage/>
-                    <PokemonImage/>
-                    <PokemonImage/>
-                    <PokemonImage/>
-                    <PokemonImage/>
+                    <PokemonImage pokemon={pokeData} loading={loading}/>
                     <div className='button-group'>
-                    <button>Previous</button>
-                    <button>Next</button>
-                </div>
+                        <button>Previous</button>
+                        <button>Next</button>
+                    </div>
                 </div>
 
                 <div className='PokeDetails'>
                     <PokemonDetails/>
-                    <PokemonDetails/>
-                    <PokemonDetails/>
-                    <PokemonDetails/>
-                    <PokemonDetails/>
+
                 </div>
             </div>
         </>
