@@ -27,6 +27,7 @@ export const Main = () => {
             // console.log(Pokemons.data)
             setPokeData(state =>{
                 state=[...state ,Pokemons.data]
+                state.sort((a,b)=>a.id>b.id?1:-1)
                 return state
             })
         })
