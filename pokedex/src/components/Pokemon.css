@@ -22,7 +22,7 @@ body {
     border-radius: 1rem ;
     background-color: bisque;
     padding: 0 1.5rem;
-    width: 350px;
+    width: 300px;
     height: 150px;
     box-shadow: 0 5px 5px rgba(rgb(0, 0, 0));
     display: flex;
@@ -45,12 +45,12 @@ body {
 
 
 .PokeDetails {
-    width: 50%;
+    width: 30%;
     text-align: center;
     color: black;
     position: fixed;
     top: 100px;
-    right: 10px;
+    right: -100px;
 }
 
 .PokeDetails img {

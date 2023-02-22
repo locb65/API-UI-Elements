@@ -5,12 +5,15 @@ export const PokemonDetails = ({data}) => {
   console.log(data)
   return (
     <>
-      <div>
-        <div>
-        <h1>Ivysaur</h1>
-        <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg' alt=''/>
-        </div>
-        <div className='TypesContainer'>
+      {
+        (!data) ? '': (
+          <>
+          <div>
+            <div>
+            <h1>{data.name}</h1>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt=''/>
+          </div>
+          <div className='TypesContainer'>
             <h2>
               Type: Grass, Poison
             </h2>
@@ -38,7 +41,12 @@ export const PokemonDetails = ({data}) => {
           <div className='Weight'>
             <h3>Weight: 130</h3>
           </div>
-      </div>
+        </div>
+        </>
+        )
+
+      }
+      
     </>
   )
 }
