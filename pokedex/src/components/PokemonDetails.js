@@ -8,10 +8,12 @@ export const PokemonDetails = ({data}) => {
       {
         (!data) ? '': (
           <>
-          <div>
+            {/* <div className="BackShadow">
+            <div className='Modal'>
+            <div className='close-btn'><button onClick={()=>data=null}>X</button></div> */}
             <div>
             <h1>{data.name}</h1>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt=''/>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`} alt=''/>
           </div>
           <div className='TypesContainer'>
             {
@@ -59,7 +61,8 @@ export const PokemonDetails = ({data}) => {
           <div className='Weight'>
             <h3>Weight: {data.weight}g</h3>
           </div>
-        </div>
+        {/* </div>
+        </div> */}
         </>
         )
 

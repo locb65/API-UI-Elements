@@ -9,16 +9,17 @@ import "./Pokemon.css"
 export const Main = () => {
     const [pokeData, setPokeData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=50');
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
     const [nextUrl, setNextUrl] = useState();
     const [prevUrl, setPrevUrl] = useState();
-    const [pokeDexData ,setPokeDexData] =useState();
+    const [pokeDexData, setPokeDexData] = useState();
+    
 
 
     const fetchPokeData = async() => {
         setLoading(true);
         const res = await axios.get(url);
-        console.log(res)
+        // console.log(res)
         setNextUrl(res.data.next);
         setPrevUrl(res.data.previous);
         getPokeData(res.data.results)
@@ -29,7 +30,7 @@ export const Main = () => {
     const getPokeData=async(res)=>{
         setPokeData([])
         res.map(async(item)=>{
-            const Pokemons=await axios.get(item.url)
+            const Pokemons=await axios.get( item.url)
             // console.log(Pokemons.data)
             setPokeData(state =>{
                 state=[...state, Pokemons.data]
@@ -41,15 +42,15 @@ export const Main = () => {
 
 
     useEffect(() => {
-        fetchPokeData ();
 
+        fetchPokeData ();
     }, [url])
 
     return (
         <>
             <div className='MainContainer'>
                 <div className='PokedexContainer'>
-                    <PokemonImage pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
+                    <PokemonImage setPokeDexData={setPokeDexData} pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
                     <div className='button-group'>
                         <button onClick={()=>{
                             setPokeData([])
@@ -64,9 +65,8 @@ export const Main = () => {
 
                 <div className='PokeDetails'>
                     <PokemonDetails data={pokeDexData}/>
-
                 </div>
             </div>
         </>
     )
-    }
+}
