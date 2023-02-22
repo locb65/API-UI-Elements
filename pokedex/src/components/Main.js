@@ -8,9 +8,11 @@ import "./Pokemon.css"
 export const Main = () => {
     const [pokeData, setPokeData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
-    const [nextUrl, setNextUrl] = useState()
-    const [prevUrl, setPrevUrl] = useState()
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+    const [nextUrl, setNextUrl] = useState();
+    const [prevUrl, setPrevUrl] = useState();
+    const [pokeDexData ,setPokeDexData] =useState();
+
 
     const fetchPokeData = async() => {
         setLoading(true);
@@ -43,7 +45,7 @@ export const Main = () => {
         <>
             <div className='MainContainer'>
                 <div className='PokedexContainer'>
-                    <PokemonImage pokemon={pokeData} loading={loading}/>
+                    <PokemonImage pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
                     <div className='button-group'>
                         <button>Previous</button>
                         <button>Next</button>
@@ -51,7 +53,7 @@ export const Main = () => {
                 </div>
 
                 <div className='PokeDetails'>
-                    <PokemonDetails/>
+                    <PokemonDetails data={pokeDexData}/>
 
                 </div>
             </div>

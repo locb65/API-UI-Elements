@@ -1,7 +1,8 @@
 import React from 'react'
 import './Pokemon.css'
 
-export const PokemonDetails = () => {
+export const PokemonDetails = ({data}) => {
+  console.log(data)
   return (
     <>
       <div>
