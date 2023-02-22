@@ -28,27 +28,36 @@ export const PokemonDetails = ({data}) => {
 
           </div>
           <div className='AbilityContainer'>
-            <div className='Abilites'>
-              <h2>
-                Overgrowth
-              </h2>
+            {
+              data.abilities.map(pokemon=>{
+                return(
+                  <>
+                    <div className='Abilites'>
+                      <h2>
+                        {pokemon.ability.name}
+                      </h2>
+                    </div>
+                  </>
+
+                )
+                
+              })
+            }
             </div>
-            <div className='Abilites'>
-              <h2>
-                Chlorophyll
-              </h2>
-            </div>
-          </div>
+
           <div className='BaseStatContainer'>
-            <h3>HP: 60</h3>
-            <h3>Attack: 61</h3>
-            <h3>Defense: 63</h3>
-            <h3>Special Attack: 80</h3>
-            <h3>Special Defense: 80</h3>
-            <h3>Speed: 60</h3>
+            {
+              data.stats.map(pokemon=>{
+                return(
+                  <>
+                    <h3>{pokemon.stat.name}: {pokemon.base_stat}</h3>
+                  </>
+                )
+              })
+            }
           </div>
           <div className='Weight'>
-            <h3>Weight: 130</h3>
+            <h3>Weight: {data.weight}lbs</h3>
           </div>
         </div>
         </>
@@ -59,3 +68,4 @@ export const PokemonDetails = ({data}) => {
     </>
   )
 }
+

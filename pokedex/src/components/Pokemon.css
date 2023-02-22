@@ -65,7 +65,7 @@ body {
 }
 
 .AbilityContainer {
-    width: 30%;
+    width: 85%;
     margin: auto;
     display: flex;
     justify-content: space-around;
@@ -74,16 +74,21 @@ body {
 }
 
 .AbilityContainer .Abilites {
+    width: 50%;
     background-color: rgb(27, 214, 43);
     color: white;
     padding: 0.5rem;
     font-size: 13px;
     border-radius: 8px;
-    margin: 2px;
+    margin: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 3px rgb(20, 1, 1);
 }
 
 .BaseStatContainer {
     margin-top: 1.5rem;
+    text-transform: capitalize;
+    font-size: 24px;
 }
 
 .button-group {
@@ -106,8 +111,8 @@ body {
 
 .TypesContainer h2{
     text-transform: uppercase;
-    margin: 5px;
-    width: 100px;
+    margin: 10px;
+    width: 4030%;
     box-shadow: 0 2px 2px rgb(10, 0, 0)
 
 }
@@ -118,4 +123,8 @@ body {
     align-self: center;
     margin: 5px;
     padding: 5px;
+}
+
+.Weight {
+    font-size: 24px;
 }
