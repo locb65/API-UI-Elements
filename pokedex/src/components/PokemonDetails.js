@@ -1,15 +1,14 @@
 import React from 'react'
 import './Pokemon.css'
 
-export const PokemonDetails = ({data, setPokeModal, resetModal}) => {
+export const PokemonDetails = ({data, resetModal}) => {
   return (
     <>
       {
         (!data) ? '': (
-          <div key={data.id}>
+          <div >
             <div className='Modal' 
             style={{ backgroundImage: `Url('https://external-preview.redd.it/o3vmHVLVo49Q1AVS7z2_FJwQClcydDSYMSeSjKZWVTQ.jpg?auto=webp&s=ee2f70b5e3b856e6d3c21c7cb81e3193f243385b')`, backgroundSize:'cover', opacity: '0.99'}} 
-            key={data.id}
              >
               <div className='close-btn'><button onClick={()=>resetModal()}>Close</button></div>
             <div className='PokemonName'>
@@ -24,41 +23,34 @@ export const PokemonDetails = ({data, setPokeModal, resetModal}) => {
           </div>
           <div className='TypesContainer'>
             {
-              data.types.map(pokemon=>{
+              data.types.map((pokemon, index)=>{
+                console.log(index)
                 return (
-                  <>
-                      <h2  key={data.id}>
+                  <h2 key={index}>
                     {pokemon.type.name}
-                      </h2>
-                  </>
+                  </h2>
                 )
               })
             }
-
           </div>
           <div className='AbilityContainer'>
             {
-              data.abilities.map(pokemon=>{
+              data.abilities.map((pokemon, index)=>{
                 return(
-                  <>
-                    <div key={data.id} className='Abilites'>
+                    <div key={index} className='Abilites'>
                       <h2>
                         {pokemon.ability.name}
                       </h2>
                     </div>
-                  </>
-
                 )
-                
               })
             }
             </div>
-
           <div className='BaseStatContainer'>
             {
-              data.stats.map(pokemon=>{
+              data.stats.map((pokemon, index)=>{
                 return(
-                  <div style={{display: 'flex', justifyContent: 'center', alignItems: 'initial', alignContent:'initial'}}>
+                  <div key={index} style={{display: 'flex', justifyContent: 'center', alignItems: 'initial', alignContent:'initial'}}>
                     <h3 style={{textAlign: 'left', width: '70%' }}>{pokemon.stat.name}:</h3> <h3>{pokemon.base_stat}</h3>
                   </div >
                 )

@@ -75,9 +75,6 @@ const resetModal = (event) => {
                 </div>
 
                 <div className='PokeDetails'>
-                    {pokeModal === true && (
-                        <PokemonDetails setPokeModal={setPokeModal} data={pokeDexData}/>
-                    )}
                     <PokemonDetails resetModal ={resetModal} setPokeModal={setPokeModal} data={pokeDexData}/>
                     
                 </div>
