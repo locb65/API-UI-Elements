@@ -7,7 +7,21 @@
 _________
 ## The PokéDex
 __________
+The UI is set up to display a group of Pokémons as small rectangular cards.
 
+<p align ='center'><img src= './pokedex/src/images/PokeCards.png' width = 300px >
+
+The App is set up to load 20 Pokémons per render and the next/previous set of Pokémons can be rendered using the buttons at the botton of the APP.
+
+<p align ='center'><img src ='./pokedex/src/images/Nav-Buttons.png' width = 300px>
+
+
+When a Pokémon card is click, A popup window will appear showing more in-depth details about that Pokémon like so:
+
+
+<p align ='center'><img src ='./pokedex/src/images/Popup.png' width = 300px>
+
+-----------
 The PokéDex is created using a ReactJS framework and 
 `create-react-app`. 
 
@@ -17,7 +31,7 @@ All the data generated in this PokéDex is taken from [PokeAPI.co](https://www.P
 
 -   Axios's syntax differs from React `fetch()` because in Axios, instead of calling: 
 ```
-fetch('someEndPoint)
+fetch('someEndPoint')
 .then(response =>response.json)
 .then(json=>console.log(json))
 ```
@@ -33,11 +47,11 @@ const getPokeData=async(res)=>{
 
 
 We then pass the data once it has been properly fetched from [PokeAPI.co](https://www.PokeAPI.co) to State through the `useState` hook from React.
-___________
+__________
 
 
-## State and Components
-_____________
+## The PokeDex: State and Components
+
 
 Here you will find how the data is passed to State and then passed to the children components to render the data to the UI and to the Modal.
 
@@ -61,8 +75,8 @@ Index.js
 ```
 _______________
 
-### State, Data, Rendering to UI
-______________
+## The PokeDex: State, Data, Rendering to UI
+
 
 - First the State constants are set up like so in Main.Js:
 
@@ -122,6 +136,22 @@ useEffect(() => {
 }, [url])
 ```
 
+* Next the State/data needed for each component can be pass to the children of Main via props and JSON destructuring. Example Below oof passing props/state:
+
+```
+<div className='MainContainer'>
+<div className='PokedexContainer'>
+    <PokemonImageCard onClick={()=>resetModal} 
+    pokemon={pokeData} 
+    loading={loading} 
+    pokemonInfo={poke=>setPokeDexData(poke)}/>
+```
+
+* Example of destructuring object and receiving state/props in children component:
+
+```
+export const PokemonImageCard = ({pokemon, loading, pokemonInfo})...
+```
 
 
 

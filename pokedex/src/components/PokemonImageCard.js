@@ -10,7 +10,7 @@ export const PokemonImageCard = ({pokemon, loading, pokemonInfo}) => {
     {
       loading ? <h1>Loading...</h1>: pokemon.map((data)=>{
         return (
-          <>
+          
             <div className="PokemonContainer" key={data.id} 
             onClick={()=>{
               pokemonInfo(data)
@@ -24,7 +24,7 @@ export const PokemonImageCard = ({pokemon, loading, pokemonInfo}) => {
               <h2>{data.name}</h2>
             </div>
             </div>
-          </>
+          
         )
       })
     }

@@ -2,24 +2,22 @@ import React from 'react'
 import './Pokemon.css'
 
 export const PokemonDetails = ({data, setPokeModal, resetModal}) => {
-  const checkClose = () => {
-    setPokeModal = false 
-    console.log(setPokeModal)
-  }
   return (
     <>
       {
         (!data) ? '': (
-          <>
-            
-            <div className='Modal' style={{ backgroundImage: `Url('https://external-preview.redd.it/o3vmHVLVo49Q1AVS7z2_FJwQClcydDSYMSeSjKZWVTQ.jpg?auto=webp&s=ee2f70b5e3b856e6d3c21c7cb81e3193f243385b')`, backgroundSize:'cover', opacity: '0.99'}}>
-            <div className='close-btn'><button onClick={()=>resetModal()}>Close</button></div>
+          <div key={data.id}>
+            <div className='Modal' 
+            style={{ backgroundImage: `Url('https://external-preview.redd.it/o3vmHVLVo49Q1AVS7z2_FJwQClcydDSYMSeSjKZWVTQ.jpg?auto=webp&s=ee2f70b5e3b856e6d3c21c7cb81e3193f243385b')`, backgroundSize:'cover', opacity: '0.99'}} 
+            key={data.id}
+             >
+              <div className='close-btn'><button onClick={()=>resetModal()}>Close</button></div>
             <div className='PokemonName'>
-            <h1 >{data.name}</h1>
-            <div className='PokemonSprite'>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`} alt=''/>
-            <div className='pokemonShadow'></div>
-            </div>
+              <h1 >{data.name}</h1>
+              <div className='PokemonSprite'>
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`} alt=''/>
+                <div className='pokemonShadow'></div>
+              </div>
           </div><div className='spacing'></div>
           <div className='Weight'>
             <h3>Weight: {data.weight}g</h3>
@@ -29,7 +27,7 @@ export const PokemonDetails = ({data, setPokeModal, resetModal}) => {
               data.types.map(pokemon=>{
                 return (
                   <>
-                      <h2 >
+                      <h2  key={data.id}>
                     {pokemon.type.name}
                       </h2>
                   </>
@@ -43,7 +41,7 @@ export const PokemonDetails = ({data, setPokeModal, resetModal}) => {
               data.abilities.map(pokemon=>{
                 return(
                   <>
-                    <div className='Abilites'>
+                    <div key={data.id} className='Abilites'>
                       <h2>
                         {pokemon.ability.name}
                       </h2>
@@ -68,13 +66,11 @@ export const PokemonDetails = ({data, setPokeModal, resetModal}) => {
             }
           </div>
         </div>
-        <div className="BackShadow" onClick={()=>resetModal()}>
-        </div>
-        </>
-        )
-
-      }
-      
+      <div className="BackShadow" onClick={()=>resetModal()}>
+    </div>
+  </div>
+  )
+  }
     </>
   )
 }
