@@ -5,44 +5,68 @@
 }
 
 body {
-    background-color: rgb(188, 247, 247);
+    background-color: rgb(182, 50, 50, 0.85);
 }
 .MainContainer {
-    width: 95%;
+    width: 100%;
     margin: auto;
     padding-top: 125px;
     display: flex;
     justify-content: center;
 }
 .PokedexContainer, .PokeDetails{
-    flex-basis: 30%;
+    flex-basis: 20%;
 }
 
 .PokemonContainer {
     border-radius: 1rem ;
-    background-color: bisque;
+    background-color: rgb(192, 233, 231);
     padding: 0 1.5rem;
-    width: 300px;
-    height: 150px;
-    box-shadow: 0 5px 5px rgba(rgb(0, 0, 0));
+    width: 450px;
+    height: 200px;
+    box-shadow: 7.5px 7.5px 7.5px rgba(13, 53, 58, 0.671);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     box-sizing: border-box;
+}
+
+.PokemonContainer h2 {
+    text-transform: capitalize;
+}
+
+.PokemonSprite {
+    position: relative;
+    border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;
+}
+
+.PokemonSprite::after{
+    position: absolute;
+    width: 45%;
+    height: 10%;
+    left: 28%;
+    border-radius: 50%;
+    z-index: -1;
+    bottom: 15%;
+    content: "";
+    box-shadow: 0 50px 24px rgba(0, 0, 0, 0.445);
 }
 
 .PokedexContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 3rem;
-    cursor: poin;
+    cursor: pointer;
+    justify-items: center;
+    font-size: 20px;
 }
 
-.PokemonCard {
-    width: 125px;
-    height: 125px;
+.PokemonCardImage {
+    width: 75%;
+    height: 100%;
 
 }
+
 .BackShadow {
     width: 100%;
     height: 100vh;
@@ -55,11 +79,13 @@ body {
     align-items: center;
 }
 
-.BackShadow .Modal {
-    width: 800px;
-    height: 800px;
-    background-color: rgb(188, 247, 247);
+.Modal {
+    width: 60%;
+    height: 60%;
     position: relative;
+    z-index: 3;
+    border-radius: 5px;
+    top: -100px;
 }
 
 .close-btn button{
@@ -73,20 +99,22 @@ body {
     font-weight: 600;
     cursor: pointer;
     position: absolute;
-    top: -15px;
-    right: -15px;
-
-
+    top: 0px;
+    right: 0px;
 }
 
+.spacing {
+    height: 25px;
+}
 
 .PokeDetails {
-    width: 13%;
+    width: 40%;
     text-align: center;
     color: black;
     position: fixed;
-    top: 100px;
-    right: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .PokeDetails img {
@@ -94,10 +122,17 @@ body {
     height: 200px;
 }
 
-.PokeDetails h1 {
+
+
+.PokemonName h1{
     text-transform: uppercase;
-    font-weight: bolder;
-    letter-spacing: 1px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 48px;
+    padding-top: 20px;
+    font-family: fantasy;
+    color: rgb(0, 0, 0);
+    font-style: italic;
 }
 
 .AbilityContainer {
@@ -129,17 +164,20 @@ body {
 
 .button-group {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-group button{
     outline: none;
     border: none;
     width: 175px;
+    height: 50px;
     padding: 0.4rem 0;
     margin: 1rem;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-    background-color: bisque;
+    background-color: rgb(192, 233, 231);
     color: black;
     border-radius: 8px;
 
@@ -148,7 +186,7 @@ body {
 .TypesContainer h2{
     text-transform: uppercase;
     margin: 10px;
-    width: 4030%;
+    width: 30%;
     box-shadow: 0 3px 3px rgb(10, 0, 0)
 
 }
@@ -165,3 +203,23 @@ body {
     font-size: 24px;
 }
 
+.Header {
+    background-color: black;
+    color: white;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-family: fantasy;
+    
+}
+
+.Footer {
+    background-color: black;
+    color: white;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

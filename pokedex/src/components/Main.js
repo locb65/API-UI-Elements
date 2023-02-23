@@ -5,6 +5,8 @@ import { PokemonDetails } from './PokemonDetails'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import "./Pokemon.css"
+import { Header } from './Header'
+import { Footer } from './Footer'
 
 export const Main = () => {
     const [pokeData, setPokeData] = useState([]);
@@ -47,11 +49,19 @@ export const Main = () => {
         fetchPokeData ();
     }, [url])
 
+const resetModal = (event) => {
+
+    if(pokeDexData !== null){
+    setPokeDexData(null)
+    }
+}
+
     return (
         <>
+        <Header/>
             <div className='MainContainer'>
                 <div className='PokedexContainer'>
-                    <PokemonImage  pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
+                    <PokemonImage  onClick={()=>resetModal} pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
                     <div className='button-group'>
                         <button onClick={()=>{
                             setPokeData([])
@@ -68,9 +78,11 @@ export const Main = () => {
                     {pokeModal === true && (
                         <PokemonDetails setPokeModal={setPokeModal} data={pokeDexData}/>
                     )}
-                    <PokemonDetails setPokeModal={setPokeModal} data={pokeDexData}/>
+                    <PokemonDetails resetModal ={resetModal} setPokeModal={setPokeModal} data={pokeDexData}/>
+                    
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
