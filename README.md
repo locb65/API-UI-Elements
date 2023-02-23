@@ -153,5 +153,118 @@ useEffect(() => {
 export const PokemonImageCard = ({pokemon, loading, pokemonInfo})...
 ```
 
+* Now it is possible to pull/render the data we need to the components. Below will showcase the components and a snippet of code that will render the data we want.
+1. The First Snippet is what renders the clickable Pokémon Cards.
+    * Here there is an `onClick()` being called on the Pokémon Card that will render the Popup Portal
+
+```
+export const PokemonImageCard = ({pokemon, loading, pokemonInfo}) => {
+  // console.log(pokemon)
+
+  return (
+    <>
+    {
+      loading ? <h1>Loading...</h1>: pokemon.map((data)=>{
+        return (
+          
+            <div className="PokemonContainer" key={data.id} 
+            onClick={()=>{
+              pokemonInfo(data)
+            }}
+            >
+              <div>
+              <h2>#{data.id}</h2>
+              </div>
+        )
+      })
+    }
+    </>
+  )
+}
+
+```
+2. The Second Snippet renders the content of the popup Modal.
 
 
+```
+export const PokemonDetails = ({data, resetModal}) => {
+  return (
+    <>
+      {
+        (!data) ? '': (
+          <div >
+            <div className='Modal' 
+            style={{ backgroundImage: `Url('https://external-preview.redd.it/o3vmHVLVo49Q1AVS7z2_FJwQClcydDSYMSeSjKZWVTQ.jpg?auto=webp&s=ee2f70b5e3b856e6d3c21c7cb81e3193f243385b')`, backgroundSize:'cover', opacity: '0.99'}} 
+             >
+              <div className='close-btn'><button onClick={()=>resetModal()}>Close</button></div>
+            <div className='PokemonName'>
+              <h1 >{data.name}</h1>
+              <div className='PokemonSprite'>
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`} alt=''/>
+                <div className='pokemonShadow'></div>
+              </div>
+          </div><div className='spacing'></div>
+          <div className='Weight'>
+            <h3>Weight: {data.weight}g</h3>
+          </div>
+          <div className='TypesContainer'>
+            {
+              data.types.map((pokemon, index)=>{
+                console.log(index)
+                return (
+                  
+                      <h2 key={index}>
+                    {pokemon.type.name}
+                      </h2>
+                )
+              })
+            </div>
+         )
+        }
+    </>
+  )
+}
+```
+* The Popup Modal itself is created solely through CSS styling which is handled withing Pokemon.css within the `./pokedex/src/components/pokemon.css` path.
+
+* Finally to the Popup needs to be closed somehow. This can be achieved by:
+    1. Make a helper function within the Main Component that would handle reseting the State of pokeDexData.
+    2. Pass the helper function to the modal component.
+    3. Call the helper function by using the  `onClick()` method and passing the helper within onClick.
+
+
+----------
+### Handle Loading Pokemon groups to UI
+
+* Here is how the App handles loading new groups of Pokémons.
+    * Above there are Preivous and Next Buttons that are coded into the Main Component.
+    * Make a helper function that handles the State of:
+    * Then pass the helper function to `onClick()` to handle the `{url}` of the State according to button names.
+    * This Should allow for the loading or next and previous groups of Pokémons.
+
+       ```
+        const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
+        const [nextUrl, setNextUrl] = useState();
+        const [prevUrl, setPrevUrl] = useState();
+        ```
+
+## And That is all FOLKS.
+# Now go Catch Them ALL!!
+<p align = 'center'><img src = 'https://i1.sndcdn.com/artworks-b6gqnrQ8CzjPRMFr-9zxwjw-t500x500.jpg'>
+
+## Frameworks and Languages Used.
+* React JS
+    * Javascript and CSS
+    * Axios Library
+        * async & await
+    * Props and components
+    * Hooks
+        * useState
+        * useEffect
+* Object Oriented Programming
+* API Fetching and Manipulations
+    * [PokeAPI.co](https://www.PokeAPI.co)
+
+# URL
+## Repo URL: https://github.com/locb65/API-UI-Elements
+## Deployed URL: 
