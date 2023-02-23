@@ -267,4 +267,4 @@ export const PokemonDetails = ({data, resetModal}) => {
 
 # URL
 ## Repo URL: https://github.com/locb65/API-UI-Elements
-## Deployed URL: 
+## Deployed URL: https://locb65.github.io/API-UI-Elements/
