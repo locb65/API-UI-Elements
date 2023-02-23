@@ -16,9 +16,13 @@ export const PokemonImage = ({pokemon, loading, pokemonInfo}) => {
               pokemonInfo(data)
             }}
             >
-              <h2>{data.id}</h2>
+              <div>
+              <h2>#{data.id}</h2>
+              </div>
               <img className="PokemonCardImage" src={data.sprites.front_default} alt=""/>
+              <div> 
               <h2>{data.name}</h2>
+            </div>
             </div>
           </>
         )
