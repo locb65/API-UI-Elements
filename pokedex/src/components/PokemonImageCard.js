@@ -2,7 +2,7 @@ import React from "react";
 import "./Pokemon.css"
 
 
-export const PokemonImage = ({pokemon, loading, pokemonInfo}) => {
+export const PokemonImageCard = ({pokemon, loading, pokemonInfo}) => {
   // console.log(pokemon)
 
   return (

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { PokemonImage } from './PokemonImage'
+import { PokemonImageCard } from './PokemonImageCard'
 import { PokemonDetails } from './PokemonDetails'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -33,7 +33,7 @@ export const Main = () => {
     const getPokeData=async(res)=>{
         setPokeData([])
         res.map(async(item)=>{
-            const Pokemons=await axios.get( item.url)
+            const Pokemons=await axios.get(item.url)
             // console.log(Pokemons.data)
             setPokeData(state =>{
                 state=[...state, Pokemons.data]
@@ -61,7 +61,7 @@ const resetModal = (event) => {
         <Header/>
             <div className='MainContainer'>
                 <div className='PokedexContainer'>
-                    <PokemonImage  onClick={()=>resetModal} pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
+                    <PokemonImageCard onClick={()=>resetModal} pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
                     <div className='button-group'>
                         <button onClick={()=>{
                             setPokeData([])
