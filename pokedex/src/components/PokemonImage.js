@@ -12,7 +12,8 @@ export const PokemonImage = ({pokemon, loading, pokemonInfo}) => {
         return (
           <>
             <div className="PokemonContainer" key={data.id} 
-            onClick={()=>pokemonInfo(data)}
+            onClick={()=>{
+              pokemonInfo(data)}}
             >
               <h2>{data.id}</h2>
               <img className="PokemonCard" src={data.sprites.front_default} alt=""/>

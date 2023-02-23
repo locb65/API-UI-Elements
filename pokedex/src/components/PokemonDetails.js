@@ -1,16 +1,20 @@
 import React from 'react'
 import './Pokemon.css'
 
-export const PokemonDetails = ({data}) => {
+export const PokemonDetails = ({data, setPokeModal}) => {
   console.log(data)
+  const checkClose = () => {
+    setPokeModal = false 
+    console.log(setPokeModal)
+  }
   return (
     <>
       {
         (!data) ? '': (
           <>
-            {/* <div className="BackShadow">
+            <div className="BackShadow">
             <div className='Modal'>
-            <div className='close-btn'><button onClick={()=>data=null}>X</button></div> */}
+            <div className='close-btn'><button onClick={()=>checkClose()}>X</button></div>
             <div>
             <h1>{data.name}</h1>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${data.id}.png`} alt=''/>
@@ -61,8 +65,8 @@ export const PokemonDetails = ({data}) => {
           <div className='Weight'>
             <h3>Weight: {data.weight}g</h3>
           </div>
-        {/* </div>
-        </div> */}
+        </div>
+        </div>
         </>
         )
 

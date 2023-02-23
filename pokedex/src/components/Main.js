@@ -13,6 +13,7 @@ export const Main = () => {
     const [nextUrl, setNextUrl] = useState();
     const [prevUrl, setPrevUrl] = useState();
     const [pokeDexData, setPokeDexData] = useState();
+    const [pokeModal, setPokeModal] = useState(false)
     
 
 
@@ -50,7 +51,7 @@ export const Main = () => {
         <>
             <div className='MainContainer'>
                 <div className='PokedexContainer'>
-                    <PokemonImage setPokeDexData={setPokeDexData} pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
+                    <PokemonImage  pokemon={pokeData} loading={loading} pokemonInfo={poke=>setPokeDexData(poke)}/>
                     <div className='button-group'>
                         <button onClick={()=>{
                             setPokeData([])
@@ -64,7 +65,10 @@ export const Main = () => {
                 </div>
 
                 <div className='PokeDetails'>
-                    <PokemonDetails data={pokeDexData}/>
+                    {pokeModal === true && (
+                        <PokemonDetails setPokeModal={setPokeModal} data={pokeDexData}/>
+                    )}
+                    <PokemonDetails setPokeModal={setPokeModal} data={pokeDexData}/>
                 </div>
             </div>
         </>
